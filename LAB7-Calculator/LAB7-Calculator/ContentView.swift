@@ -7,13 +7,22 @@
 
 import SwiftUI
 
+struct NumberButtonView: View {
+    let number: Int
+    var body: some View {
+        Button(number) {
+            { print(number) }
+        }
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello, world! youngwoo")
         }
         .padding()
     }
