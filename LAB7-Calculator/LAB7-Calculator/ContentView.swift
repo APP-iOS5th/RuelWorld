@@ -37,7 +37,7 @@ enum CalculatorButtonItems: String {
     var backgroundColor: Color {
         switch self {
         case .divide, .multiply, .equal, .add, .subtract: .orange
-            
+        case .clear, .decimal: .secondary
         default: .gray
         }
     }
