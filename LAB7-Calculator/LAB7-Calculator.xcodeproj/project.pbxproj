@@ -55,9 +55,9 @@
 			children = (
 				415488B22BD0DAA10062A6EE /* LAB7_CalculatorApp.swift */,
 				415488B42BD0DAA10062A6EE /* ContentView.swift */,
+				415488C02BD0E5A70062A6EE /* CalculatorButton.swift */,
 				415488B62BD0DAA20062A6EE /* Assets.xcassets */,
 				415488B82BD0DAA20062A6EE /* Preview Content */,
-				415488C02BD0E5A70062A6EE /* CalculatorButton.swift */,
 			);
 			path = "LAB7-Calculator";
 			sourceTree = "<group>";

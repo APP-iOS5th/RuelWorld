@@ -35,9 +35,11 @@ enum ButtonText: String {
     }
 }
 
+
 struct ContentView: View {
     @State var displayNum = "0"
     @State var resultNum = 0
+    @State private var calculatorState = Calculator()
     
     private let buttonTitles: [[ButtonText]] = [[.seven, .eight, .nine, .divide],
                                                 [.four, .five, .six, .multiply],
@@ -47,26 +49,23 @@ struct ContentView: View {
     
     var body: some View {
         
+        VStack(spacing: 10) {
+            Spacer()
             
-            VStack(spacing: 10) {
-                Spacer()
-                
-                Text(displayNum)
-                    .font(.largeTitle)
-                    .padding()
-                
-                Spacer()
-                
-                ForEach(buttonTitles, id: \.self) { row in
-                    HStack(spacing: 10) {
-                        ForEach(row, id: \.self) { button in
-                            CalculatorButton(button: button, displayText: $displayNum)
-                        }
+            Text(displayNum)
+                .font(.largeTitle)
+                .padding()
+            
+            Spacer()
+            
+            ForEach(buttonTitles, id: \.self) { row in
+                HStack(spacing: 10) {
+                    ForEach(row, id: \.self) { button in
+                        CalculatorButton(button: button, displayText: $displayNum, calculatorState: $calculatorState)
                     }
                 }
             }
-            
-        
+        }
         
     }
 }
