@@ -10,8 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            
+            Text("Calaulator")
+                .font(.largeTitle)
+                .foregroundStyle(Color.white)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.edgesIgnoringSafeArea(.all))
     }
 }
 
