@@ -29,4 +29,21 @@ struct SwiftUI_TodoListApp: App {
                 .modelContainer(sharedModelContainer)
         }
     }
+    
+    @MainActor private func initialzeData() {
+        do {
+            //데이터베이스가져오기
+            let fetchDescriptor = FetchDescriptor<Todo>()
+            let fetchedTodos = try sharedModelContainer.mainContext.fetch(fetchDescriptor)
+   
+            if fetchedTodos.isEmpty {
+                for todo in Todo.tasks {
+                    sharedModelContainer.mainContext.insert(todo)
+                }
+            }
+            
+        } catch {
+            print("Failed \(error)")
+        }
+    }
 }

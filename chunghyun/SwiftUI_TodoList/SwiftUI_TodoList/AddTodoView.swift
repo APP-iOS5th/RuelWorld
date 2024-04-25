@@ -14,7 +14,7 @@ struct AddTodoView: View {
     @State var priority: Priority = .low
     
     @State var todo: String = ""
-    @State var priorityTitle: String = "내용을 입력하세요"
+    @State var priorityTitle: String = "우선순위"
     @State var isAlert: Bool = false
     
     var body: some View {
