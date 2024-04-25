@@ -34,6 +34,8 @@ struct ContentView: View {
                         Text("\(todo.descrip)")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundStyle(todoTextColor(todo))
+                            .strikethrough(todo.completed, color: .red)
+                            
 
                         if todo.priority == .high {
                              Spacer()
@@ -64,7 +66,6 @@ struct ContentView: View {
     }
     
     func todoTextColor(_ todo: Todo) -> Color {
-        print(todo.priority)
         switch todo.priority {
         case .high:
             return .red
