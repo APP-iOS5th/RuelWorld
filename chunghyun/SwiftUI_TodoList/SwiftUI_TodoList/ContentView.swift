@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  TodoList
+//  SwiftUI_TodoList
 //
 //  Created by Chung Wussup on 4/25/24.
 //
@@ -26,9 +26,10 @@ struct ContentView: View {
                 ForEach(todos) {todo in
                     HStack {
                         Button {
-                            print(todo.descrip)
+                            todo.completed.toggle()
                         } label: {
                             Image(systemName: todo.completed ? "checkmark.circle": "circle")
+                                .foregroundStyle(todo.completed ? .red : .black)
                         }
                         
                         Text("\(todo.descrip)")
@@ -48,7 +49,9 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
-                        isPresnting.toggle()
+//                        isPresnting.toggle()
+                        let todo = Todo(completed: false, descrip: "hi", priority: .high)
+                        modelContext.insert(todo)
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -75,16 +78,7 @@ struct ContentView: View {
 }
 
 
-struct AddTodoView: View {
-    @Environment(\.isPresented) var isPresented
-    
-    var body: some View {
-        VStack{
-            Text("hello")
-        }
-    }
-    
-}
+
 
 #Preview {
     ContentView()

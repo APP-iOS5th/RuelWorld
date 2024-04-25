@@ -1,6 +1,6 @@
 //
 //  Task.swift
-//  TodoList
+//  SwiftUI_TodoList
 //
 //  Created by Chung Wussup on 4/25/24.
 //
