@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-struct Task {
-    var name: String
-    var isFinished: Bool
-}
-
 struct ContentView: View {
     @State var todoLists: [Task] = [Task(name: "밥먹기", isFinished: false), Task(name: "놀기", isFinished: false)]
     @State var newTaskName: String = ""
@@ -49,34 +44,12 @@ struct ContentView: View {
             }
             .padding(.horizontal)
             
-            List {
-                ForEach(todoLists.indices, id: \.self) { index in
-                    HStack {
-                        Button(action: {
-                            todoLists[index].isFinished.toggle()
-                        }) {
-                            Image(systemName: todoLists[index].isFinished ? "checkmark.square.fill" : "square")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.blue)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        
-                        Text(todoLists[index].name)
-                            .foregroundColor(todoLists[index].isFinished ? .gray : .primary)
-                            .strikethrough(todoLists[index].isFinished, color: .gray)
-                            .padding(.leading, 5)
-                    }
-                }
-                .onDelete(perform: { indexSet in
-                    todoLists.remove(atOffsets: indexSet)
-                })
-            }
-            .padding(.horizontal)
-            .listStyle(PlainListStyle())
+            TodoListView(todoLists: $todoLists)
+                .padding(.horizontal)
         }
     }
 }
+
 
 
 #Preview {
