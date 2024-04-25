@@ -13,19 +13,6 @@ struct Task {
     var isFinished: Bool
 }
 
-struct iOSCheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Button(action: {
-            configuration.isOn.toggle()
-        }, label: {
-            HStack {
-                Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                configuration.label
-            }
-        })
-    }
-}
-
 struct ContentView: View {
     @State var todoLists: [Task] = [Task(name: "밥먹기", isFinished: false), Task(name: "놀기", isFinished: false)]
     @State var newTaskName: String = ""
@@ -61,10 +48,20 @@ struct ContentView: View {
             
             List {
                 ForEach(todoLists.indices, id: \.self) { index in
-                    Toggle(isOn: $todoLists[index].isFinished) {
-                        Text(todoLists[index].name)
+                    HStack {
+                        Button {
+                            todoLists[index].isFinished.toggle()
+                        } label: {
+                            Image(systemName: todoLists[index].isFinished ? "checkmark.square" : "square")
+                        }
+                        if todoLists[index].isFinished {
+                            Text(todoLists[index].name)
+                                .strikethrough()
+                        } else {
+                            Text(todoLists[index].name)
+                        }
+                            
                     }
-                    .toggleStyle(iOSCheckboxToggleStyle())
                 }
                 .onDelete(perform: { indexSet in
                     todoLists.remove(atOffsets: indexSet)
