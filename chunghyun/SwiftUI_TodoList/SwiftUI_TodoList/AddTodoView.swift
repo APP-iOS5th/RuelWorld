@@ -37,8 +37,8 @@ struct AddTodoView: View {
                 
             }
             .padding()
+            Divider()
             
-            Spacer()
             
             Button {
                 addTodo()
