@@ -10,45 +10,48 @@ import SwiftData
 
 struct ContentView: View {
     @State var isPresnting: Bool = false
-    @Query var todos: [Todo] = [Todo(completed: false, descrip: "Wake up", priority: .low ),
-                                Todo(completed: false, descrip: "Shower", priority: .medium),
-                                Todo(completed: false, descrip: "Code", priority: .high),
-                                Todo(completed: false, descrip: "Eat", priority: .high ),
-                                Todo(completed: false, descrip: "Sleep", priority: .high),
-                                Todo(completed: false, descrip: "Get groceries", priority: .high)]
+    @Query var todos: [Todo] = [Todo(completed: false, descrip: "Wake up", priority: .low )]
     @Environment(\.modelContext) var modelContext
     
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(todos) {todo in
-                    HStack {
-                        Button {
-                            todo.completed.toggle()
-                        } label: {
-                            Image(systemName: todo.completed ? "checkmark.circle": "circle")
-                                .foregroundStyle(todo.completed ? .red : .black)
-                        }
-                        
-                        Text("\(todo.descrip)")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundStyle(todoTextColor(todo))
-                            .strikethrough(todo.completed, color: .red)
-                            
-
-                        if todo.priority == .high {
-                             Spacer()
-                             Image(systemName: "star.fill")
-                                 .renderingMode(.original)
-                         }
+                DisclosureGroup("High") {
+                    ForEach(todos.filter({ $0.priority == .high })) { todo in
+                        todoListRow(todo: todo)
                     }
+                    .onDelete(perform: { indexSet in
+                        deleteTodo(index: indexSet)
+                    })
                 }
-                .onDelete(perform: { indexSet in
-                    deleteTodo(index: indexSet)
-                })
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundStyle(.red)
+                .padding()
+                
+                DisclosureGroup("Medium") {
+                    ForEach(todos.filter({ $0.priority == .medium })) { todo in
+                        todoListRow(todo: todo)
+                    }
+                    .onDelete(perform: { indexSet in
+                        deleteTodo(index: indexSet)
+                    })
+                }
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundStyle(.green)
+                .padding()
+                
+                DisclosureGroup("Low") {
+                    ForEach(todos.filter({ $0.priority == .low })) { todo in
+                        todoListRow(todo: todo)
+                    }
+                    .onDelete(perform: { indexSet in
+                        deleteTodo(index: indexSet)
+                    })
+                }
+                .font(.system(size: 20, weight: .semibold))
+                .padding()
             }
-            
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
@@ -81,6 +84,29 @@ struct ContentView: View {
         index.forEach { index in
             let todo = todos[index]
             modelContext.delete(todo)
+        }
+    }
+    
+    func todoListRow(todo: Todo) -> some View {
+        return  HStack {
+            Button {
+                todo.completed.toggle()
+            } label: {
+                Image(systemName: todo.completed ? "checkmark.circle": "circle")
+                    .foregroundStyle(todo.completed ? .red : .black)
+            }
+            
+            Text("\(todo.descrip)")
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(todoTextColor(todo))
+                .strikethrough(todo.completed, color: .red)
+            
+            
+            if todo.priority == .high {
+                Spacer()
+                Image(systemName: "star.fill")
+                    .renderingMode(.original)
+            }
         }
     }
 }
