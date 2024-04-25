@@ -62,11 +62,17 @@ struct ContentView: View {
                         }
                             
                     }
+
                 }
                 .onDelete(perform: { indexSet in
                     todoLists.remove(atOffsets: indexSet)
                 })
+                
             }
+            .padding(.trailing)
+            .listStyle(.plain)
+            .background(.white)
+            .scrollContentBackground(.hidden)
         }
     }
 }
