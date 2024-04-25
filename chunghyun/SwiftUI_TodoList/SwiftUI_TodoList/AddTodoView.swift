@@ -18,22 +18,26 @@ struct AddTodoView: View {
     var body: some View {
         VStack{
             Text("Todo 등록")
-            
+                .padding()
+    
             HStack {
                 TextField("내용을 입력하세요", text: $todo)
-                
+  
                 Menu("우선순위") {
                     Button("High") {
                         priority = .high
                     }
+                    
                     Button("Medium") {
                         priority = .medium
                     }
+                    
                     Button("Low") {
                         priority = .low
                     }
+
                 }
-                .foregroundStyle(.black)
+                .foregroundStyle(priorityTextColor(priority))
                 
             }
             .padding()
@@ -48,6 +52,18 @@ struct AddTodoView: View {
             
             Spacer()
         }
+    }
+    
+    func priorityTextColor(_ priority: Priority) -> Color {
+        switch priority {
+        case .high:
+            return .red
+        case .medium:
+            return .green
+        case .low:
+            return .black
+        }
+        
     }
     
     func addTodo() {
