@@ -6,8 +6,16 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Task {
+@Model
+final class Task {
+    var id = UUID()
     var name: String
     var isFinished: Bool
+    
+    init(name: String, isFinished: Bool) {
+        self.name = name
+        self.isFinished = isFinished
+    }
 }

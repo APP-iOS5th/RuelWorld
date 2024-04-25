@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State var todoLists: [Task] = [Task(name: "밥먹기", isFinished: false), Task(name: "놀기", isFinished: false)]
+    @Environment(\.modelContext) private var modelContext
+    @Query private var items: [Task]
     @State var newTaskName: String = ""
     @State var error: Bool = false
     
     var body: some View {
-        VStack {
+        VStack { 
             Text("Todo List")
                 .font(.largeTitle)
                 .bold()
@@ -28,8 +30,8 @@ struct ContentView: View {
                 
                 Button(action: {
                     if !newTaskName.isEmpty {
-                        todoLists.append(Task(name: newTaskName, isFinished: false))
-                        newTaskName = ""
+                        error = false
+                        addItem()
                     } else {
                         error = true
                     }
@@ -44,8 +46,47 @@ struct ContentView: View {
             }
             .padding(.horizontal)
             
-            TodoListView(todoLists: $todoLists)
+            List {
+                ForEach(items) { item in
+                    HStack {
+                        Button(action: {
+                            item.isFinished.toggle()
+                        }) {
+                            Image(systemName: item.isFinished ? "checkmark.square.fill" : "square")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.blue)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Text(item.name)
+                            .foregroundColor(item.isFinished ? .gray : .primary)
+                            .strikethrough(item.isFinished, color: .gray)
+                            .padding(.leading, 5)
+                    }
+                }
+                .onDelete(perform: deleteItems)
+            }
+            .listStyle(PlainListStyle())
                 .padding(.horizontal)
+        }
+    }
+    
+    private func addItem() {
+        withAnimation {
+            let newItem = Task(name: newTaskName, isFinished: false)
+            modelContext.insert(newItem)
+            newTaskName = ""
+        }
+    }
+
+
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(items[index])
+            }
         }
     }
 }

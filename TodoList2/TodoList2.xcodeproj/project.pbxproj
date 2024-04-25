@@ -11,7 +11,6 @@
 		57BE6DAF2BDA832A00547964 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DAE2BDA832A00547964 /* ContentView.swift */; };
 		57BE6DB12BDA832D00547964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BE6DB02BDA832D00547964 /* Assets.xcassets */; };
 		57BE6DB42BDA832D00547964 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BE6DB32BDA832D00547964 /* Preview Assets.xcassets */; };
-		57BE6DBB2BDA835700547964 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DBA2BDA835700547964 /* TodoListView.swift */; };
 		57BE6DBD2BDA837D00547964 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DBC2BDA837D00547964 /* Task.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +20,6 @@
 		57BE6DAE2BDA832A00547964 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		57BE6DB02BDA832D00547964 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57BE6DB32BDA832D00547964 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		57BE6DBA2BDA835700547964 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
 		57BE6DBC2BDA837D00547964 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +58,6 @@
 				57BE6DBC2BDA837D00547964 /* Task.swift */,
 				57BE6DB02BDA832D00547964 /* Assets.xcassets */,
 				57BE6DB22BDA832D00547964 /* Preview Content */,
-				57BE6DBA2BDA835700547964 /* TodoListView.swift */,
 			);
 			path = TodoList2;
 			sourceTree = "<group>";
@@ -146,7 +143,6 @@
 				57BE6DBD2BDA837D00547964 /* Task.swift in Sources */,
 				57BE6DAF2BDA832A00547964 /* ContentView.swift in Sources */,
 				57BE6DAD2BDA832A00547964 /* TodoList2App.swift in Sources */,
-				57BE6DBB2BDA835700547964 /* TodoListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
