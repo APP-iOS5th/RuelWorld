@@ -1,14 +1,14 @@
 //
-//  LAB7_CalculatorApp.swift
-//  LAB7-Calculator
+//  TodoListApp.swift
+//  TodoList
 //
-//  Created by Chung Wussup on 4/18/24.
+//  Created by Song Kim on 4/25/24.
 //
 
 import SwiftUI
 
 @main
-struct LAB7_CalculatorApp: App {
+struct TodoListApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
