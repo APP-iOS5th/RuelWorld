@@ -19,7 +19,7 @@ struct ContentView: View {
             List {
                 DisclosureGroup("High") {
                     ForEach(todos.filter({ $0.priority == .high })) { todo in
-                        todoListRow(todo: todo)
+                        TodoRow(todo: todo)
                     }
                     .onDelete(perform: { indexSet in
                         deleteTodo(index: indexSet)
@@ -31,7 +31,7 @@ struct ContentView: View {
                 
                 DisclosureGroup("Medium") {
                     ForEach(todos.filter({ $0.priority == .medium })) { todo in
-                        todoListRow(todo: todo)
+                        TodoRow(todo: todo)
                     }
                     .onDelete(perform: { indexSet in
                         deleteTodo(index: indexSet)
@@ -43,7 +43,7 @@ struct ContentView: View {
                 
                 DisclosureGroup("Low") {
                     ForEach(todos.filter({ $0.priority == .low })) { todo in
-                        todoListRow(todo: todo)
+                        TodoRow(todo: todo)
                     }
                     .onDelete(perform: { indexSet in
                         deleteTodo(index: indexSet)
@@ -68,45 +68,10 @@ struct ContentView: View {
         }
     }
     
-    func todoTextColor(_ todo: Todo) -> Color {
-        switch todo.priority {
-        case .high:
-            return .red
-        case .medium:
-            return .green
-        case .low:
-            return .black
-        }
-        
-    }
-    
     func deleteTodo(index: IndexSet) {
         index.forEach { index in
             let todo = todos[index]
             modelContext.delete(todo)
-        }
-    }
-    
-    func todoListRow(todo: Todo) -> some View {
-        return  HStack {
-            Button {
-                todo.completed.toggle()
-            } label: {
-                Image(systemName: todo.completed ? "checkmark.circle": "circle")
-                    .foregroundStyle(todo.completed ? .red : .black)
-            }
-            
-            Text("\(todo.descrip)")
-                .font(.system(size: 14, weight: .medium))
-                .foregroundStyle(todoTextColor(todo))
-                .strikethrough(todo.completed, color: .red)
-            
-            
-            if todo.priority == .high {
-                Spacer()
-                Image(systemName: "star.fill")
-                    .renderingMode(.original)
-            }
         }
     }
 }

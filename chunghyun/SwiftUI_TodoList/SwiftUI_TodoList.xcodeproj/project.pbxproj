@@ -13,6 +13,7 @@
 		419A5E092BDA1BDE002E8819 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419A5E082BDA1BDE002E8819 /* Preview Assets.xcassets */; };
 		419A5E102BDA1BE9002E8819 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A5E0F2BDA1BE9002E8819 /* Task.swift */; };
 		419A5E122BDA1C70002E8819 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A5E112BDA1C70002E8819 /* AddTodoView.swift */; };
+		419A5E142BDA37D9002E8819 /* TodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A5E132BDA37D9002E8819 /* TodoRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		419A5E082BDA1BDE002E8819 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		419A5E0F2BDA1BE9002E8819 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		419A5E112BDA1C70002E8819 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
+		419A5E132BDA37D9002E8819 /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				419A5E042BDA1BDE002E8819 /* Assets.xcassets */,
 				419A5E062BDA1BDE002E8819 /* SwiftUI_TodoList.entitlements */,
 				419A5E072BDA1BDE002E8819 /* Preview Content */,
+				419A5E132BDA37D9002E8819 /* TodoRow.swift */,
 			);
 			path = SwiftUI_TodoList;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				419A5E032BDA1BDD002E8819 /* ContentView.swift in Sources */,
 				419A5E102BDA1BE9002E8819 /* Task.swift in Sources */,
+				419A5E142BDA37D9002E8819 /* TodoRow.swift in Sources */,
 				419A5E122BDA1C70002E8819 /* AddTodoView.swift in Sources */,
 				419A5E012BDA1BDD002E8819 /* SwiftUI_TodoListApp.swift in Sources */,
 			);
