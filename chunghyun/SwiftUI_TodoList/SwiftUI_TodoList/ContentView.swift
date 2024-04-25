@@ -53,8 +53,17 @@ struct ContentView: View {
                 .padding()
             }
             .toolbar {
+#if os(iOS)
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
+                        isPresnting.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+#endif
+                ToolbarItem {
+                    Button {
                         isPresnting.toggle()
                     } label: {
                         Image(systemName: "plus")

@@ -14,6 +14,7 @@ struct AddTodoView: View {
     @State var priority: Priority = .low
     
     @State var todo: String = ""
+    @State var priorityTitle: String = "내용을 입력하세요"
     @State var isAlert: Bool = false
     
     var body: some View {
@@ -24,17 +25,20 @@ struct AddTodoView: View {
             HStack {
                 TextField("내용을 입력하세요", text: $todo)
                 
-                Menu("우선순위") {
+                Menu(priorityTitle) {
                     Button("High") {
                         priority = .high
+                        priorityTitle = priorityTitle(.high)
                     }
                     
                     Button("Medium") {
                         priority = .medium
+                        priorityTitle = priorityTitle(.medium)
                     }
                     
                     Button("Low") {
                         priority = .low
+                        priorityTitle = priorityTitle(.low)
                     }
                     
                 }
@@ -73,6 +77,17 @@ struct AddTodoView: View {
         }
         
     }
+    func priorityTitle(_ priority: Priority) -> String {
+        switch priority {
+        case .high:
+            return "High"
+        case .medium:
+            return "Medium"
+        case .low:
+            return "Low"
+        }
+        
+    }
     
     func addTodo() {
         if todo.isEmpty {
@@ -83,6 +98,8 @@ struct AddTodoView: View {
             self.isPresented = false
         }
     }
+    
+    
     
 }
 
