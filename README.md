@@ -1,2 +1,4 @@
-# RuelWorld
-LAB7 - RuelWorld
+# KSIOMNG0929
+---
+1. Calculator
+2. Todolist
