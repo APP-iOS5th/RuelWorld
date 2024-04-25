@@ -34,9 +34,8 @@ struct ContentView: View {
                         
                         Text("\(todo.descrip)")
                             .font(.system(size: 20, weight: .semibold))
-                            .foregroundStyle(todoTextColor(todo.priority))
+                            .foregroundStyle(todoTextColor(todo))
 
-                        
                         if todo.priority == .high {
                              Spacer()
                              Image(systemName: "star.fill")
@@ -44,14 +43,15 @@ struct ContentView: View {
                          }
                     }
                 }
+                .onDelete(perform: { indexSet in
+                    deleteTodo(index: indexSet)
+                })
             }
             
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
-//                        isPresnting.toggle()
-                        let todo = Todo(completed: false, descrip: "hi", priority: .high)
-                        modelContext.insert(todo)
+                        isPresnting.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -60,12 +60,13 @@ struct ContentView: View {
             .navigationTitle("To do List")
         }
         .sheet(isPresented: $isPresnting) {
-            AddTodoView()
+            AddTodoView(isPresented: $isPresnting)
         }
     }
     
-    func todoTextColor(_ priority: Priority) -> Color {
-        switch priority {
+    func todoTextColor(_ todo: Todo) -> Color {
+        print(todo.priority)
+        switch todo.priority {
         case .high:
             return .red
         case .medium:
@@ -74,6 +75,13 @@ struct ContentView: View {
             return .black
         }
         
+    }
+    
+    func deleteTodo(index: IndexSet) {
+        index.forEach { index in
+            let todo = todos[index]
+            modelContext.delete(todo)
+        }
     }
 }
 
