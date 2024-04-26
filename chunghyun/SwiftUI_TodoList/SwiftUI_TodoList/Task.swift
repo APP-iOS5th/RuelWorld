@@ -17,7 +17,7 @@ enum Priority: Codable {
 @Model
 class Todo {
     var id = UUID()
-    var completed: Bool
+    var completed: Bool 
     var descrip: String
     var priority: Priority
     

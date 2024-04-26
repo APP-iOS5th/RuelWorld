@@ -20,6 +20,7 @@
 		419A5E6F2BDA4B92002E8819 /* TodoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A5E6E2BDA4B92002E8819 /* TodoWidget.swift */; };
 		419A5E712BDA4B94002E8819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419A5E702BDA4B94002E8819 /* Assets.xcassets */; };
 		419A5E752BDA4B94002E8819 /* TodoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 419A5E682BDA4B92002E8819 /* TodoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		419A5E792BDA4D07002E8819 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A5E0F2BDA1BE9002E8819 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		410630F92BDB37FA007421E3 /* TodoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodoWidgetExtension.entitlements; sourceTree = "<group>"; };
 		419A5DFD2BDA1BDD002E8819 /* SwiftUI_TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419A5E002BDA1BDD002E8819 /* SwiftUI_TodoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_TodoListApp.swift; sourceTree = "<group>"; };
 		419A5E022BDA1BDD002E8819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		419A5DF42BDA1BDD002E8819 = {
 			isa = PBXGroup;
 			children = (
+				410630F92BDB37FA007421E3 /* TodoWidgetExtension.entitlements */,
 				419A5DFF2BDA1BDD002E8819 /* SwiftUI_TodoList */,
 				419A5E6B2BDA4B92002E8819 /* TodoWidget */,
 				419A5E372BDA4B4D002E8819 /* Frameworks */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				419A5E6D2BDA4B92002E8819 /* TodoWidgetBundle.swift in Sources */,
+				419A5E792BDA4D07002E8819 /* Task.swift in Sources */,
 				419A5E6F2BDA4B92002E8819 /* TodoWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9UU59NTC96;
@@ -502,6 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9UU59NTC96;
